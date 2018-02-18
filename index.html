@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hangman Fly Fishing Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- local css -->
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
+        <!-- bootstrap javascript  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- local javascript -->
+        <script src="assets/javascript/game.js"></script>
+    
+
+</head>
+<body>
+    <!-- Title Img -->
+    <div class="container">
+        <div class="row">            
+            <div class="col">           
+                <div class="titleHead">
+                    <img class="titleImage" src="assets/images/hangmanTitle.png"/>
+                </div>
+            </div>                
+        </div>
+    </div>
+    <!-- Main body of Game -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-md-10">
+                <div class="playField">
+                    <span id="gameLetters"></span>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-lg-3">
+                    <!-- animation of hangman goes here -->
+                    <div class="gallows">
+                        <img src="assets/images/Gallows/0gallows.png" alt="main image">
+                    </div>
+                </div>    
+                <div class="col-lg-7">
+                    <!-- this begins the game field -->
+                    <div id="gameField">
+                        <div class="userField">
+                            <h2 class="titleHead">Use the keyboard below to start</h2><div id="buttons"></div>
+                            <!-- <input type="text" id="userGuess" class="guess-box" onkeydown="hangman" onkeyup="runRun"> -->
+                            <button type="button" class="btnRestart" onclick="window.location.reload()">Restart</button>
+                    
+                        </div>
+                    </div>
+                </div>  
+            </div>    
+    </div>        
+
+    
+</body>
+</html>
+

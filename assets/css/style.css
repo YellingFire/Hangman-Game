@@ -1,0 +1,101 @@
+/* * {
+    outline: 1px solid red !important;
+} */
+
+body {
+    background-color: black
+}
+
+.titleHead {
+    text-align: center;
+    color: white;
+}
+
+.gallows {
+    margin: 10px auto;
+    /* padding: 20px 20px; */
+    height: 250px;
+    width: 250px;
+    /* border: solid 3px white;    */
+}
+ /* current word play shows here */
+.playField {
+        margin: 10px auto;
+        text-align: center;
+        color: white;
+        width: auto;
+        height: 100px;
+        border: solid 3px white;
+}
+
+#gameLetters {
+    color: white;
+    font-size: 60px;
+}
+
+.gameField {
+    margin: 10px auto;
+    text-align: center;
+    color: white;
+    width: auto;
+    height: 300px;
+    border: solid 3px white;
+}
+
+.userField {
+    margin: 10px auto;
+    width: auto;
+    height: 250px;
+    border: solid 3px white;
+}
+
+.userChoice {
+    margin: 10px auto;
+    width: auto;
+    height: 400px;
+    border: solid 3px white;
+
+}
+
+/* user letter css starts here */
+
+.letter-button-color {
+    color:black;
+    font-size: 15px;
+  }
+
+.letter {
+width: 40px;
+height: 40px;
+border-style: solid;
+padding: 2px;
+float: left;
+margin: 10px;
+}
+
+.letter-button {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.letter-invis {
+    display: none;
+}
+
+/* Restart/start Button */
+
+.startgame {
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 490px;
+    width: 100px;
+    height: 40px;
+}
+
+.btnRestart {
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 370px;
+    width: 100px;
+    height: 40px;
+}
