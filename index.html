@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">            
             <div class="col">           
-                <div class="titleHead">
+                <div class="titleImage"> <!-- this was where the titleHead Class was -->
                     <img class="titleImage" src="assets/images/hangmanTitle.png"/>
                 </div>
             </div>                
@@ -45,15 +45,14 @@
                 <div class="col-lg-3">
                     <!-- animation of hangman goes here -->
                     <div class="gallows">
-                        <img src="assets/images/Gallows/0gallows.png" alt="main image">
+                        <img id="gallows" src="assets/images/Gallows/0gallows.png" alt="main image">
                     </div>
                 </div>    
                 <div class="col-lg-7">
                     <!-- this begins the game field -->
                     <div id="gameField">
                         <div class="userField">
-                            <h2 class="titleHead">Use the keyboard below to start</h2><div id="buttons"></div>
-                            <!-- <input type="text" id="userGuess" class="guess-box" onkeydown="hangman" onkeyup="runRun"> -->
+                            <h2 class="titleHead">Use the keyboard below to start</h2><div id="keboard"></div><button type="button" id="a" class="letter-button-color letter letter-button">A</button><button type="button" id="b" class="letter-button-color letter letter-button">B</button><button type="button" id="c" class="letter-button-color letter letter-button">C</button><button type="button" id="d" class="letter-button-color letter letter-button">D</button><button type="button" id="e" class="letter-button-color letter letter-button">E</button><button type="button" id="f" class="letter-button-color letter letter-button">F</button><button type="button" id="g" class="letter-button-color letter letter-button">G</button><button type="button" id="h" class="letter-button-color letter letter-button">H</button><button type="button" id="i" class="letter-button-color letter letter-button">I</button><button type="button" id="j" class="letter-button-color letter letter-button">J</button><button type="button" id="k" class="letter-button-color letter letter-button">K</button><button type="button" id="l" class="letter-button-color letter letter-button">L</button><button type="button" id="m" class="letter-button-color letter letter-button">M</button><button type="button" id="n" class="letter-button-color letter letter-button">N</button><button type="button" id="o" class="letter-button-color letter letter-button">O</button><button type="button" id="p" class="letter-button-color letter letter-button">P</button><button type="button" id="q" class="letter-button-color letter letter-button">Q</button><button type="button" id="r" class="letter-button-color letter letter-button">R</button><button type="button" id="s" class="letter-button-color letter letter-button">S</button><button type="button" id="t" class="letter-button-color letter letter-button">T</button><button type="button" id="u" class="letter-button-color letter letter-button">U</button><button type="button" id="v" class="letter-button-color letter letter-button">V</button><button type="button" id="w" class="letter-button-color letter letter-button">W</button><button type="button" id="x" class="letter-button-color letter letter-button">X</button><button type="button" id="y" class="letter-button-color letter letter-button">Y</button><button type="button" id="z" class="letter-button-color letter letter-button">Z</button>                            
                             <button type="button" class="btnRestart" onclick="window.location.reload()">Restart</button>
                     
                         </div>

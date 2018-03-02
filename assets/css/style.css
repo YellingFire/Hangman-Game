@@ -5,10 +5,24 @@
 body {
     background-color: black
 }
+.titleImage {
+    text-align: center;
+
+}
 
 .titleHead {
     text-align: center;
     color: white;
+}
+
+.lossTitleHead {
+    color: red;
+    text-align: center;
+}
+
+.winTitleHead {
+    color: forestgreen;
+    text-align: center;
 }
 
 .gallows {
@@ -80,6 +94,12 @@ margin: 10px;
 
 .letter-invis {
     display: none;
+}
+
+.letter-wrong {
+    display: url"assets/images/redX.png";
+    /* color: red; */
+
 }
 
 /* Restart/start Button */

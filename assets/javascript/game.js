@@ -3,75 +3,127 @@ $(document).ready(function() {
 // theme based array for game chosen words
 var gameWords = ["caddis", "bwo", "adams", "elkhair", "parachute", "cahill", "hopper", "baetis", "midge", "mouse", "beetle", "salmonfly", "drake", "gnat", "pheasant", "flies", "dun", "trico", "mosquito", "damsel", "ant", "emerger", "thorax", "fathead", "compardun"];
 // current word field pulled from array
-var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
 var rand = gameWords[Math.floor(Math.random() * gameWords.length)];
 var wordLength = rand.length;
+var gameLetters= [];
+var splitArray = rand.split("");
+var correctGuess = 0;
 var userGuess = [];
-var gameLetters = rand;
+var wrongGuess = [];
+var guessesLeft = 6;
 
+//These are DOM Element variables
+var gamePlaySpan = document.getElementById("gameLetters")
+var keyboardButtons = $(".letter")
+// console.log(document.getElementById("gameLetters"));
 console.log(rand);
-// console.log(wordLength);
-// console.log(userGuess);
+// console.log(splitArray);
+// console.log(keyboardButtons);
 
-// This creates the word written in underscores in the #gameLetters Field
-for (var i =0; i < gameLetters.length; i++) {   
-        $("#gameLetters").append(wordLength[i] = "_ ");             
-
-                
+//This for loop creates the underscores for all the random words.
+for (var i =0; i < wordLength; i++) {   
+        gameLetters[i] = "_ "; 
+             
 }
-                        
-                // This is the user interface/keyboard jquery
-for (var j = 0; j < letters.length; j++) {
-        
-        var letterBtn = $("<button>" + letters[j] + "</button>");
-        
-        letterBtn.attr("class", "letter-button letter letter-button-color");
-        letterBtn.attr("dataletter", letters[j]);
 
-        $("#buttons").append(letterBtn);     
-        // $("#buttons").on("click", letters[j]);
-        $("button").on("click", function() {
-                console.log($(this).text());
+
+gamePlaySpan.innerHTML=gameLetters.join("");
+
+
+var userGuess = keyboardButtons.click(function() {
+        var userGuess = this.id;
+        
+        
+        var correctLetter =false;
+               
+        
+                for (var j = 0; j < wordLength; j++) {
+
+                        if (splitArray[j] === userGuess) {
+                               gameLetters[j] = userGuess; 
+                               correctLetter = true;    
+                               correctGuess++;                           
+                                $(this).addClass("letter-invis");
+
+
+                        }
+                        else {
+        
+                              
+                        }
+
+                }
+
+                //This is the win case
+                if (correctGuess === wordLength) {
+                        $(keyboardButtons).addClass("letter-invis");
+                        $(".titleHead").addClass("winTitleHead").text("You Win!");
+
+                }
+                
+                //This starts the false or wrong guess functionality
+                var addGallows = {
+                        5: function() {
+                                return document.getElementById("gallows").src="assets/images/Gallows/1head.png";
+                        },
+                        4: function() {
+                                return document.getElementById("gallows").src="assets/images/Gallows/2torso.png";
+                        },
+                        3: function() {
+                                return document.getElementById("gallows").src="assets/images/Gallows/3left-arm.png";
+                        },
+                        2: function() {
+                                return document.getElementById("gallows").src="assets/images/Gallows/4right-arm.png";
+                        },
+                        1: function() {
+                                return document.getElementById("gallows").src="assets/images/Gallows/5left-leg.png";
+                        },
+                        0: function() {
+                                
+                                $(keyboardButtons).addClass("letter-invis");
+                                //write on screen that loss has occured and display Rand
+                                $(".titleHead").addClass("lossTitleHead").text("You Lose! Word was " + rand); 
+                                // console.log("You Lose!");                               
+                                return document.getElementById("gallows").src="assets/images/Gallows/6right-leg-END.png";
+                                
+                        },
+
+                } 
+                
+                if (!correctLetter) {
+                        guessesLeft--;
+                        $(this).addClass("letter-invis");
+                        // console.log(guessesLeft);
+                        addGallows[guessesLeft]();
+                }               
+                gamePlaySpan.innerHTML = gameLetters.join("");        
         });
-        
-}
 
-                            
-       
-        // var userGuess = []; 
-        
-        //         $("button").on("click", function() {
-        //         // console.log($(this).text());
-        //         // console.log(userGuess);
-        //         // console.log(gameLetters);
-                
-        //         // console.log(button.val);
 
-                        
-        // });
+});
 
-      
 
-        // $("button").on("click", function() {
 
-        //         if (gameLetters[i] != this) {
-        //         //        
-        //                 console.log("correct guess");
-        //         };
-        //         // console.log($(this).text());     
 
-       
-        // })     // else if ()
 
-                //         $(this).addClass("letter-invis");
-                // }        
-                
-                //         console.log((this).innerHTML);
-                        // console.log($(this).text())
-                        
-});                
-        
+
+
+
+
+
+
+
+// add a function titled new game here that initializes variables except score counter. This function will also replace the restart button.
+
+// function newGame() {
+//         rand = gameWords[Math.floor(Math.random() * gameWords.length)];
+//         wordLength = rand.length;
+//         gameLetters= [];
+//         splitArray = rand.split("");
+//         wrongLetter =true;
+// }
+
+
 
 // buttons need to register a data point or value. Once a value is returned we can compare it to the letters in the "RAND" word 
 // (does that mean the data is stored in an empty array?)            
@@ -79,7 +131,4 @@ for (var j = 0; j < letters.length; j++) {
 // is user guess equal to any character in string...show 
 // number of failures will be reflected by imgs in gallows section
 // letters already guessed
-// start over or reset
-
-// 
-// });
+// start over or reset 
